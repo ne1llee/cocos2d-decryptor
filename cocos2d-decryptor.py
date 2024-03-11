@@ -28,7 +28,7 @@ def on_message(message, data):
         print("[*] {}".format(message))
 
 
-def attach_to_device_by_ip(process_name, js_script_path):
+def attach_to_device(process_name, js_script_path):
     session = frida.get_usb_device()
     pid = session.spawn([process_name])
     process = session.attach(pid)
@@ -41,4 +41,4 @@ def attach_to_device_by_ip(process_name, js_script_path):
 
 
 if __name__ == "__main__":
-    attach_to_device_by_ip(PACKAGE_NAME, SCRIPT_PATH)
+    attach_to_device(PACKAGE_NAME, SCRIPT_PATH)
